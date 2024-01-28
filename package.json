@@ -13,11 +13,16 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@tombatossals/react-chords": "^0.2.10",
     "astro": "^4.2.6",
-    "typescript": "^5.3.3"
+    "instantsearch.js": "^4.64.1",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "typesense-instantsearch-adapter": "^2.7.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.8",
+    "@types/react-dom": "^18.2.18",
     "dotenv": "^16.4.1",
     "typesense": "^1.7.2"
   }
