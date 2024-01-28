@@ -7,11 +7,18 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "start:typesense": "docker compose up",
+    "index:typesense": "npx tsx ./scripts/indexTypesense.ts"
   },
   "dependencies": {
-    "astro": "^4.2.6",
     "@astrojs/check": "^0.4.1",
+    "astro": "^4.2.6",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.8",
+    "dotenv": "^16.4.1",
+    "typesense": "^1.7.2"
   }
 }
