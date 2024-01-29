@@ -81,6 +81,7 @@
 .ais-RefinementList-noResults {
   font-size: var(--step--1);
 }
-.ais-Highlight-highlighted {
+.ais-Highlight-highlighted,
+.ais-RefinementList-label mark {
   background-color: var(--accent) !important;
 }
