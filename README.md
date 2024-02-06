@@ -1,54 +1,97 @@
-# Astro Starter Kit: Basics
+<h1 align="center">
+ 🎸 Instant Guitar Chord Positions Search, powered by Typesense - Astro 🚀
+</h1>
+<div align="center">
+  <div><h3>Other versions</h3></div>
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-nuxt-js">NuxtJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-next-js">NextJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-angular">Angular 15</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-vanilla-js">Vanilla JS</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-astro">Astro</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-solid-js">SolidJS</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-remix">Remix</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-svelte-kit">Sveltekit</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-qwik">Qwik</a> 
+</div>
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Tech Stack
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+- <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a>
+- Astro
+- Typescript
+- Cypress
+- [typesense-instantsearch-adapter](https://github.com/typesense/typesense-instantsearch-adapter) & instantsearch.js
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+All make for a blazingly fast search experience 🔥🔥🔥
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+The guitar chord dataset & chord svg generation is from <a href="https://github.com/tombatossals/chords-db" target="_blank">tombatossals</a> which contains 2141 chord shapes of 552 chords.
 
-## 🚀 Project Structure
+## Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```bash
 /
-├── public/
-│   └── favicon.svg
+├── cypress/
+│   └── e2e tests...
+├── scripts/
+│   ├── data/
+│   │   ├── guitar.json
+│   │   └── schema.json
+│   └── indexTypesense.ts # script that index data from guitar.json into typesense server
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   └── Heading.astro
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   │   └── index.astro # guitar chords search
+│   ├── utils/
+│   │   ├── reactChord.ts # draw guitar chord svg
+│   │   └── typesense.ts # typesense-instantsearch-adapter config
+│   └── styles/
+│       └── ...
 └── package.json
 ```
+## Development
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+To run this project locally, make sure you have docker and nodejs, install the dependencies and run the local server:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Installation
 
-Any static assets, like images, can be placed in the `public/` directory.
+```shell
+git clone https://github.com/typesense/showcase-guitar-chords-search-astro.git
 
-## 🧞 Commands
+cd showcase-guitar-chords-search-astro
 
-All commands are run from the root of the project, from a terminal:
+npm i
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Start typesense server
 
-## 👀 Want to learn more?
+```shell
+npm run start:typesense # or: docker compose up
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Index data into typesense
+
+```shell
+npm run index:typesense
+```
+
+Start the dev web app
+
+```shell
+npm run dev
+```
+
+Open http://localhost:4321 to see the app ✌️
+
+## Deployment
+Set env variables to point the app to the Typesense Cluster
+
+```env
+PUBLIC_TYPESENSE_SEARCH_ONLY_API_KEY=xxx
+PUBLIC_TYPESENSE_HOST=xxx.typesense.net
+PUBLIC_TYPESENSE_PORT=443
+PUBLIC_TYPESENSE_PROTOCOL=https
+```
+
