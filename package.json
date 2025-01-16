@@ -13,19 +13,19 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
+    "@astrojs/check": "^0.9.4",
     "@tombatossals/react-chords": "^0.2.10",
-    "astro": "^4.2.6",
-    "instantsearch.js": "^4.64.1",
+    "astro": "^5.1.7",
+    "instantsearch.js": "^4.76.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.3.3",
-    "typesense-instantsearch-adapter": "^2.7.1"
+    "typescript": "^5.7.3",
+    "typesense-instantsearch-adapter": "^2.8.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.8",
     "@types/react-dom": "^18.2.18",
-    "cypress": "^13.6.4",
-    "dotenv": "^16.4.1",
-    "typesense": "^1.7.2"
+    "cypress": "^13.17.0",
+    "dotenv": "^16.4.7",
+    "typesense": "^1.8.2"
   }
 }
